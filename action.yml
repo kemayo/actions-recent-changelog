@@ -1,0 +1,20 @@
+name: Recent Changes from a changelog
+description: Extract the latest release section from a simple markdown changelog
+branding:
+  icon: package
+  color: yellow
+inputs:
+  args:
+    input:
+      description: 'Filename of the master changelog'
+      required: false
+      default: 'CHANGELOG.md'
+    output:
+      description: 'Filename for the recent changes'
+      required: false
+      default: 'RECENT_CHANGES.md'
+runs:
+  using: composite
+  steps:
+    - run: python $GITHUB_ACTION_PATH/main.py ${{ inputs.input }} ${{ inputs.output }}
+      shell: bash
