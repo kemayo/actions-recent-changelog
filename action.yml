@@ -4,15 +4,14 @@ branding:
   icon: package
   color: yellow
 inputs:
-  args:
-    input:
-      description: 'Filename of the master changelog'
-      required: false
-      default: 'CHANGELOG.md'
-    output:
-      description: 'Filename for the recent changes'
-      required: false
-      default: 'RECENT_CHANGES.md'
+  input:
+    description: 'Filename of the master changelog'
+    required: false
+    default: 'CHANGELOG.md'
+  output:
+    description: 'Filename for the recent changes'
+    required: false
+    default: 'RECENT_CHANGES.md'
 runs:
   using: composite
   steps:
