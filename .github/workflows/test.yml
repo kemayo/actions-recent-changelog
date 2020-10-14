@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./action
+      with:
+        input: test/changelog.md
+        output: test/recent.md
+    - name: Output recent changes
+      run: cat test/recent.md
