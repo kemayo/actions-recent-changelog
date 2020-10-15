@@ -1,8 +1,8 @@
 name: Recent Changes from a changelog
 description: Extract the latest release section from a simple markdown changelog
 branding:
-  icon: package
-  color: yellow
+  icon: filter
+  color: blue
 inputs:
   input:
     description: 'Filename of the master changelog'
