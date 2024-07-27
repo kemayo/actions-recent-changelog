@@ -11,12 +11,16 @@ def main(full_changelog, output):
 		for line in f:
 			if line.startswith('##') and not line.startswith('###'):
 				if matching:
-					print("Wrote changelog to", output)
-					return
+					return output
 				matching = True
 			if matching:
 				out.write(line)
+	if matching:
+		# There was only one version in the changelog, so we hit the end of
+		# the file while still matching
+		return output
 	sys.exit("Couldn't write changelog")
 
 if __name__ == '__main__':
-	main(sys.argv[1], sys.argv[2])
+	output = main(sys.argv[1], sys.argv[2])
+	print("Wrote changelog to", output)
